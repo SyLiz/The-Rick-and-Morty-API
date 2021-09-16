@@ -19,7 +19,12 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 
   void getCharData() async {
-    var characterData = await CharacterModel().getCharacterListData(1);
+    var characterData;
+    try {
+      characterData = await CharacterModel().getCharacterListData(1);
+    } catch (e) {
+      print(e);
+    }
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return CharListPage(
         firstData: characterData,

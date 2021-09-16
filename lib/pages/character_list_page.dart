@@ -68,7 +68,7 @@ class _CharListPageState extends State<CharListPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'หน้า',
+                  'Pages',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(

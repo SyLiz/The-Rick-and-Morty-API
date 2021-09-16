@@ -20,7 +20,6 @@ class NameCardModel extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.all(8.0),
         onTap: () {
-          print(allData);
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return ShowCharacterInfo(
               name: allData['name'],

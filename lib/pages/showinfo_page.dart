@@ -21,6 +21,13 @@ class ShowCharacterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MaterialColor getIcon() {
+      if (status == 'Alive')
+        return Colors.green;
+      else if (status == 'Dead') return Colors.red;
+      return Colors.grey;
+    }
+
     final myStyle = TextStyle(fontSize: 24);
     return Scaffold(
       appBar: AppBar(
@@ -31,11 +38,28 @@ class ShowCharacterInfo extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Center(
-                child: CircleAvatar(
-              backgroundImage: picture,
-              radius: 90,
-            )),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.fiber_manual_record,
+                      color: getIcon(),
+                    ),
+                    Text(
+                      ' $status',
+                      style: myStyle,
+                    ),
+                  ],
+                ),
+                Center(
+                    child: CircleAvatar(
+                  backgroundImage: picture,
+                  radius: 90,
+                )),
+              ],
+            ),
           ),
           Card(
             child: Container(
@@ -58,13 +82,13 @@ class ShowCharacterInfo extends StatelessWidget {
                   ),
                   ListTile(
                     title: Text(
-                      'Origin name: $originName',
+                      'First seen in: $originName',
                       style: myStyle,
                     ),
                   ),
                   ListTile(
                     title: Text(
-                      'Location name: $locationName',
+                      'Last known location: $locationName',
                       style: myStyle,
                     ),
                   ),
